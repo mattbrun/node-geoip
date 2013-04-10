@@ -128,9 +128,18 @@ function extract(tmpFile, tmpFileName, cb) {
 			console.log(' DONE'.green);
 
 			if (tmpFileName.indexOf('GeoLiteCity') !== -1) {
-				var oldPath = path.join(tmpPath, path.basename(tmpFileName, '.zip'));
-				var newPath = path.join(tmpPath, 'GeoLiteCity');
-				fs.renameSync(oldPath, newPath);
+				fs.readdir(tmpPath, function (err, files) {
+					var newFileName = '';
+					for (var i = 0; i < files.length; i++) {
+  						if (files[i].indexOf('GeoLiteCity_') !== -1) {
+    							newFileName = files[i];
+    							break;
+  						}
+					}
+      					var oldPath = path.join(tmpPath, newFileName);
+					var newPath = path.join(tmpPath, 'GeoLiteCity');
+					fs.renameSync(oldPath, newPath);
+				});
 			}
 
 			cb();
