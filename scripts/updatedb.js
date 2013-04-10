@@ -33,7 +33,7 @@ var databases = [{
 	dest: 'geoip-country6.dat'
 },{
 	type: 'city-extended',
-	url: 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity_CSV/GeoLiteCity_20121204.zip',
+	url: 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity_CSV/GeoLiteCity-latest.zip',
 	src: [
 		'GeoLiteCity/GeoLiteCity-Blocks.csv',
 		'GeoLiteCity/GeoLiteCity-Location.csv'
